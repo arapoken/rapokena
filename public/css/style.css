@@ -1,0 +1,5 @@
+body {
+    background-image: url('/images/gohugo-default-sample-hero-image.jpg');
+    background-size: cover;
+    background-position: center;
+}

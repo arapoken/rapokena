@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Contacts on aRapoken</title>
+    <link>http://localhost:1313/contacts/</link>
+    <description>Recent content in Contacts on aRapoken</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 25 Feb 2025 00:14:48 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/contacts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to reach me</title>
+      <link>http://localhost:1313/contacts/my-contact/</link>
+      <pubDate>Tue, 25 Feb 2025 00:14:48 +0800</pubDate>
+      <guid>http://localhost:1313/contacts/my-contact/</guid>
+      <description>&lt;hr&gt;</description>
+    </item>
+  </channel>
+</rss>

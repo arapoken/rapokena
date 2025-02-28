@@ -2,3 +2,13 @@ baseURL = 'https://rapokena.org/'
 languageCode = 'en-us'
 title = 'aRapoken'
 theme = 'ananke'
+
+sectionPagesMenu = 'main'
+
+[pagination]
+  disableAliases = false
+  pagerSize = 10
+  path = 'page'
+
+[params]
+  mainSections = ['posts']
