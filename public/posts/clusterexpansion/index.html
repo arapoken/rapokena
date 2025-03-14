@@ -1,6 +1,32 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+<script>
+  window.MathJax = {
+    tex: {
+      packages: {'[+]': ['ams']},
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,      
+      processEnvironments: true, 
+      display: true
+    },
+    svg: {
+      fontCache: 'global'
+    },
+    options: {
+      renderActions: {
+        addMenu: []
+      }
+    }
+  };
+</script>
+
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
@@ -31,10 +57,10 @@
     
 
     
-      <link rel="canonical" href="http://localhost:1313/posts/phasetransition/">
+      <link rel="canonical" href="http://localhost:1313/posts/clusterexpansion/">
     
 
-    <meta property="og:url" content="http://localhost:1313/posts/phasetransition/">
+    <meta property="og:url" content="http://localhost:1313/posts/clusterexpansion/">
   <meta property="og:site_name" content="aRapoken">
   <meta property="og:title" content="StatPhy - Cluster Expansion">
   <meta property="og:description" content="lecture notes from David Tong">
@@ -48,7 +74,7 @@
   <meta itemprop="description" content="lecture notes from David Tong">
   <meta itemprop="datePublished" content="2025-03-14T00:38:48+08:00">
   <meta itemprop="dateModified" content="2025-03-14T00:38:48+08:00">
-  <meta itemprop="wordCount" content="758">
+  <meta itemprop="wordCount" content="753">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="StatPhy - Cluster Expansion">
   <meta name="twitter:description" content="lecture notes from David Tong">
@@ -162,12 +188,12 @@
 <h3 id="22-系统的可观测量">2.2 系统的可观测量</h3>
 <p>在一般的物理系统中，可观测量由算符 $\hat{\mathcal{O}}$ 表示，有 $\langle \hat{\mathcal{O}}\rangle = \sum_n p(n) \langle n \vert \hat{\mathcal{O}}\vert n \rangle $。其中 $p(n)$ 是第 $n$ 个微观态对应的概率，$\langle n \vert \hat{\mathcal{O}}\vert n \rangle$ 是在该状态下观测到的值。因此，要从宏观上理解 $\hat{\mathcal{O}}$ 的物理性质，我们必须搞清楚<strong>微观态的分布 $p(n)$</strong>。</p>
 <h3 id="23-正则系综的微观态分布">2.3 正则系综的微观态分布</h3>
-<p>正则系综，即系统能够与一个大的热库（hot reservoir）达到平衡的情况，其粒子数N,体积V,温度T固定。给定 NVT 的值，我们可以唯一确定微观态的分布情况 $P_i=P(E_i)$。这里通过拉格朗日乘子法和最大熵原理推导它的形式，由约束条件：
-$$\begin{align*}
-\text{归一化条件 }\sum_i p_i =&amp;1\
-\text{宏观能量不再变化 }\sum_i p_i E_i =&amp;\langle E\rangle
-\end{align*}$$
-以及 Gibbs 熵的定义 $S=-k_B\sum_ip_i\ln p_i$。构造拉格朗日函数：
+<p>正则系综，即系统能够与一个大的热库（hot reservoir）达到平衡的情况，其粒子数N,体积V,温度T固定。给定 NVT 的值，我们可以唯一确定微观态的分布情况 $P_i=P(E_i)$。这里通过拉格朗日乘子法和最大熵原理推导它的形式，由约束条件：</p>
+<ul>
+<li>归一化条件: $$\sum_i p_i = 1 $$</li>
+<li>宏观能量不再变化$$\sum_i p_i E_i = \langle E \rangle$$</li>
+</ul>
+<p>以及 Gibbs 熵的定义 $S=-k_B\sum_ip_i\ln p_i$。构造拉格朗日函数：
 $$\mathcal{L}= -\sum_i p_i \ln p_i -\alpha(\sum_i p_i-1)-\beta(\sum_i p_i E_i -\langle E\rangle)$$
 要使得熵$\frac{S}{k_B}=\mathcal{L}$最大，则对每个 $p_i$ 求偏导且令其为0：
 $$\frac{\partial \mathcal{L} }{\partial p_i} = -(1+\ln p_i)-\alpha-\beta E_i =0$$
@@ -204,7 +230,7 @@ Z_1=\int dq\langle q \vert e^{-\beta \hat{H}}\vert q \rangle
 \end{equation}$$</p>
 <p>到此为止我们完成了配分函数“对能量本征态求和”到“对位置本征态求积分”的转变。事实上，我们可以选择任何想要的本征态作为基底，也可以写成独立于基底的形式：$Z_1 = \rm{Tr }\text{ } e^{-\beta \hat{H}}$。</p>
 <p>那么该如何向经典世界靠拢呢？令 $[\hat{q},\hat{p}]=i\hbar \rightarrow 0$，就得到指数项的分离形式 $$ e^{-\beta \hat{H}}=e^{-\beta \hat{p}^2/2m} e^{-\beta V(\hat{q})} +\mathcal{O}(\hbar)$$
-再代入式(\ref{qqq})并忽略 $\mathcal{O}(\hbar)$ 项，注意这里符号上尖的细微差别</p>
+再代入式(2)并忽略 $\mathcal{O}(\hbar)$ 项，注意这里符号上尖的细微差别</p>
 <p>$$\begin{align*}
 Z_1&amp;=\int dq\langle q \vert e^{-\beta \hat{p}^2/2m} e^{-\beta V(\hat{q})}\vert q \rangle\
 &amp;=\int dq e^{-\beta V(q)}\langle q\vert e^{-\beta \hat{p}^2/2m}\vert q \rangle\
@@ -240,7 +266,6 @@ $$
 \begin{split}
 \notag Z_N &amp;=\frac{1}{N!}\frac{1}{\lambda^{3N}}\int \prod_{i=1}^N d^3r_i \prod_{j&lt;k}(1+f_{jk})\
 &amp;=\frac{1}{N!}\frac{1}{\lambda^{3N}}\int \prod_{i=1}^N d^3r_i (1+\sum_{j&lt;k}f_{jk} +\sum_{j&lt;k,l&lt;m} f_{jk}f_{lm}+\cdots)
-\tag{3}
 \end{split}
 \end{equation}$$
 可以看到，第一项 $\boldsymbol{1}$ 的积分后即 $\int \prod_{i=1}^N d^3r_i=V^{N}$，结果是理想气体配分函数 $Z_{ideal}=\frac{V^N}{N!\lambda^{3N}}$。形如第二项 $\boldsymbol{f_{jk}}$ 的积分是
@@ -258,19 +283,14 @@ $$Z^{(1)} = \frac{V^{N}}{N!\lambda^{3N}} \frac{N^2}{2V}\int d^3r f(r)=Z_{ideal}\
 $$\begin{equation}
 Z_N =\frac{1}{N!\lambda^{3N}}\sum_{G} W[G]
 \end{equation}$$</p>
-<p>绝大部分子图具有不连通的部分，如图(\ref{wqwqwq})的 $f_{12}f_{34}$ 组合项，这样的项显然可以分解为更小的子图积分的乘积。我们把各个内部连通的部分叫做<strong>团簇（clusters）</strong>，具有 $l$ 个原子的团簇称为 $l-cluster$。$N$ 个原子的子图 $G$ 可以被分为 $m_l$ 个 $l-clusters$，即
+<p>绝大部分子图具有不连通的部分，如图(3)的 $f_{12}f_{34}$ 组合项，这样的项显然可以分解为更小的子图积分的乘积。我们把各个内部连通的部分叫做<strong>团簇（clusters）</strong>，具有 $l$ 个原子的团簇称为 $l-cluster$。$N$ 个原子的子图 $G$ 可以被分为 $m_l$ 个 $l-clusters$，即
 $$\begin{equation}
 \sum_l^N m_l l=N
 \end{equation}$$
 有了 clusters 的存在，我们就有办法去处理更大规模的图。先考虑 3-cluster：</p>
-<p>每个 3-cluster 会作为一类乘积因子 $U_3$ 出现在配分函数的各个组合项中，不管与它们组合的 $N-3$ 个原子构成的子图如何。并且由于组合项的唯一性，每个 cluster 只被计算一次：
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\linewidth]{4.png}
-\label{U3}
-\end{figure}</p>
+<p>每个 3-cluster 会作为一类乘积因子 $U_3$ 出现在配分函数的各个组合项中，不管与它们组合的 $N-3$ 个原子构成的子图如何。并且由于组合项的唯一性，每个 cluster 只被计算一次：</p>
 <p>一般地，对 $l-cluster$ 也可以写出乘积因子 $$U_l=\int \prod_{i=1}^l d^3r_i \sum_{G\in{l-cluster}} G$$
-那么，整个配分函数就可以写成一系列 $U_l$ 的乘积，其中 ${m_l}$ 是满足约束关系式(\ref{1qq})的各种可能的组合。
+那么，整个配分函数就可以写成一系列 $U_l$ 的乘积，其中 ${m_l}$ 是满足约束关系式(5)的各种可能的组合。
 $$\sum_G W[G]=N!\sum_{{m_l}} \prod_l \frac{U_l^{m_l}}{(l!)^{m_l}m_l!}$$</p>
 <p>其中 $N! \prod_l \frac{1}{(l!)^{m_l}m_l!}$ 项表示将子图 $G$ 分割为一系列 $m_l$ 个 $l-clusters$ 的组合数。</p>
 <p>因此，最终的配分函数形式是
